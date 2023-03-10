@@ -2,4 +2,67 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
+
+body {
+  background-color: #EDF1D6;
+}
+
+.accordion{
+  width: 60%;
+  margin: 0 auto;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: block;
+  padding: 0.8em;
+  width: 100%;
+  height: 2.5em;
+  border-bottom: 0.1em solid #EDF1D6;
+  background: #9DC08B;
+  color: #40513B;
+  text-transform: uppercase;
+  font-size: 1.8em;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+label:hover {
+  background: #609966;
+}
+
+.expandable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input + .expandable {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s linear;
+}
+
+.expandable:hover,
+input:checked + .expandable,
+#label-1:hover~ .expandable,
+#label-2:hover~ .expandable,
+#label-3:hover~ .expandable,
+#label-4:hover~ .expandable,
+#label-5:hover~ .expandable{
+  overflow: auto;
+  height: 40em;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+img{
+  width:100%;
+  height: 40em;
+}
+
