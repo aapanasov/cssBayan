@@ -2,16 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
   background-color: #EDF1D6;
+  font-family: sans-serif;
 }
 
-.accordion{
-  width: 60%;
+.accordion {
+  max-width: 35em;
   margin: 0 auto;
+  color: #EDF1D6;
+}
+
+.card {
+  border-bottom: 0.13em solid #EDF1D6;
 }
 
 input {
@@ -19,50 +24,72 @@ input {
 }
 
 label {
-  display: block;
-  padding: 0.8em;
-  width: 100%;
-  height: 2.5em;
-  border-bottom: 0.1em solid #EDF1D6;
-  background: #9DC08B;
-  color: #40513B;
-  text-transform: uppercase;
-  font-size: 1.8em;
-  line-height: 1em;
   cursor: pointer;
 }
 
-label:hover {
-  background: #609966;
-}
-
-.expandable {
+.title {
+  height: 2.2em;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 0 0.5em;
+  text-transform: uppercase;
+  background: #9DC08B;
+  font-size: 1.5em;
+  transition: color 0.3s linear;
 }
 
-input + .expandable {
-  overflow: hidden;
+.icon {
+  color: transparent;
+  transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.meme {
   height: 0;
-  transition: height 0.5s linear;
+  width: 100%;
+  transform: scale(0);
+  transition: transform 0.5s linear, height 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.expandable:hover,
-input:checked + .expandable,
-#label-1:hover~ .expandable,
-#label-2:hover~ .expandable,
-#label-3:hover~ .expandable,
-#label-4:hover~ .expandable,
-#label-5:hover~ .expandable{
-  overflow: auto;
-  height: 40em;
-  cursor: pointer;
-  overflow: hidden;
+img {
+  width: 100%;
+  height: 100%;
 }
 
-img{
-  width:100%;
-  height: 40em;
+.accordion:hover .icon,
+.accordion:hover .card {
+  color: #40513B;
 }
 
+input:checked+label .icon {
+  transform: rotate(-45deg);
+}
+
+input:checked+label .meme {
+  height: 19em;
+  transform: scale(1);
+}
+
+input:checked+label {
+  color: #40513B;
+}
+
+@media (hover: hover) {
+  .card:active {
+    opacity: 0.7;
+  }
+
+  input:checked+label .icon,
+  label:hover .icon {
+    transform: rotate(-45deg);
+  }
+
+  input:checked+label .meme,
+  label:hover .meme {
+    height: 19em;
+    transform: scale(1);
+  }
+}
