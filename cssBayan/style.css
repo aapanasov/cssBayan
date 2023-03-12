@@ -72,16 +72,25 @@ input:checked+label {
   color: #40513B;
 }
 
-@media (hover: hover) {
-  .card:active {
-    opacity: 0.8;
-  }
+.card:active .title .icon {
+  color: #40513B;
+}
 
-  .card:active .title {
+.card:active .title {
+  color: #40513B;
+}
+
+.card:active {
+  opacity: 0.8;
+}
+
+@media (hover: hover) {
+
+  .card:active .title .icon {
     color: #EDF1D6;
   }
 
-  .card:active .title .icon {
+  .card:active .title {
     color: #EDF1D6;
   }
 
