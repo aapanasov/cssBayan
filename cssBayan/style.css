@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EDF1D6;
+  font-family: sans-serif;
+}
+
+.accordion {
+  max-width: 35em;
+  margin: 0 auto;
+  color: #EDF1D6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card {
+  border-bottom: 0.13em solid #EDF1D6;
+}
+
+input {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+.title {
+  height: 2.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+  text-transform: uppercase;
+  background: #9DC08B;
+  font-size: 1.5em;
+  transition: color 0.2s linear;
+}
+
+.icon {
+  transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.meme {
+  height: 0;
+  width: 100%;
+  transform: scale(0);
+  transition: transform 0.5s linear, height 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+input:checked+label .icon {
+  transform: rotate(-45deg);
+}
+
+input:checked+label .meme {
+  height: 19em;
+  transform: scale(1);
+}
+
+input:checked+label {
+  color: #40513B;
+}
+
+.card:active .title .icon {
+  color: #40513B;
+}
+
+.card:active .title {
+  color: #40513B;
+}
+
+.card:active {
+  opacity: 0.8;
+}
+
+@media (hover: hover) {
+
+  .card:active .title .icon {
+    color: #EDF1D6;
+  }
+
+  .card:active .title {
+    color: #EDF1D6;
+  }
+
+  input:checked+label .icon,
+  label:hover .icon {
+    transform: rotate(-45deg);
+  }
+
+  input:checked+label .meme,
+  label:hover .meme {
+    height: 19em;
+    transform: scale(1);
+  }
+
+  .icon {
+    color: transparent;
+  }
+
+  .accordion:hover .icon,
+  .accordion:hover .card {
+    color: #40513B;
+  }
+}
+
+@media (max-width: 820px) {
+  .accordion {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 320px) {
+  .accordion {
+    font-size: 0.6em;
+  }
+}
